@@ -1,2 +1,27 @@
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js"></script>
+// hosting was chat gpt so no questions
+async function getRecipeById(id) {
+    // This line waits for Supabase to fetch the row
+    let { data, error } = await supabase
+        .from('recipes')
+        .select('data')
+        .eq('id', id)
+        .single();
+
+    if (error) {
+        console.error(error);
+        return null;
+    } else {
+        return data.data; // returns the recipe dictionary
+    }
+}
+function getRecipeById(id) {
+    supabase
+        .from('recipes')
+        .select('data')
+        .eq('id', id)
+        .single()
+        .then(({ data, error }) => {
+            if (error) console.error(error);
+            else console.log(data.data);
+        });
+}
