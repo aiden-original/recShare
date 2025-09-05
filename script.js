@@ -20,7 +20,7 @@ async function getRecipeById(id) {
         console.error(error);
         return null;
     } else {
-        return data.data; // returns the recipe dictionary
+        return data.dictionary; // returns the recipe dictionary
     }
 }
 // Show recipe in console (or update your DOM)
