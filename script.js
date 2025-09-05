@@ -10,7 +10,7 @@
 
 async function getRecipeById(id) {
     // This line waits for Supabase to fetch the row
-    let { data, error } = await supabase
+    let { data, error } = await Supabase
         .from('recipes')
         .select('data')
         .eq('id', id)
