@@ -13,7 +13,7 @@ async function getRecipeById(id) {
     let { data, error } = await Supabase
         .from('recipes')
         .select('dictionary')
-        .eq('id', id)
+        .eq('recipe_id', id)
         .single();
 
     if (error) {
