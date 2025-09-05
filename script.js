@@ -14,7 +14,7 @@ async function getRecipeById(id) {
         .from('recipes')
         .select('dictionary')
         .eq('recipe_id', id)
-        .single();
+        .maybeSingle();
 
     if (error) {
         console.error(error);
