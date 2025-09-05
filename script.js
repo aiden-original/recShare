@@ -26,7 +26,7 @@ async function getRecipeById(id) {
 }
 // Show recipe in console (or update your DOM)
   async function showRecipe() {
-    const recipe = await getRecipeById(0);
+    const recipe = await getRecipeById(1);
     if (recipe) {
       console.log(recipe.name);
       console.log(recipe.ingredients);
