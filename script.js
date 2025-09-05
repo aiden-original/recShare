@@ -14,14 +14,14 @@ async function getRecipeById(id) {
         return data.data; // returns the recipe dictionary
     }
 }
-function getRecipeById(id) {
-    supabase
-        .from('recipes')
-        .select('data')
-        .eq('id', id)
-        .single()
-        .then(({ data, error }) => {
-            if (error) console.error(error);
-            else console.log(data.data);
-        });
-}
+// Show recipe in console (or update your DOM)
+  async function showRecipe() {
+    const recipe = await getRecipeById(count);
+    if (recipe) {
+      console.log(recipe.name);
+      console.log(recipe.ingredients);
+      console.log(recipe.steps);
+    }
+  }
+
+  showRecipe();
