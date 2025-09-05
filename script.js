@@ -1,4 +1,13 @@
 // hosting was chat gpt so no questions
+
+// Initialize Supabase
+  const supabaseUrl = 'https://your-supabase-project-url.supabase.co';
+  const supabaseKey = 'your-anon-key';
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+
+
+
 async function getRecipeById(id) {
     // This line waits for Supabase to fetch the row
     let { data, error } = await supabase
