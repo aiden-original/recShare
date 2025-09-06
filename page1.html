@@ -115,6 +115,7 @@
                     //, 
                     async function getRecipeById2() {
                           let recipe = await main(counter); // ✅ actual value
+                        console.log(counter,":counter \n",recipe,":recipe")
                            if (recipe){
 
                                 cell2.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
@@ -143,8 +144,10 @@
                     //-----------------------------------------------------------------
                     
                     async function getRecipeById3() {
+                        
                       let recipe = await main(counter); // ✅ actual value
                        // You can now use the recipe
+                        console.log(counter,":counter \n",recipe,":recipe")
                         if (recipe){
 
                             cell3.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
