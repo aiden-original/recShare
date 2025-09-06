@@ -82,8 +82,9 @@
                     
                     async function getRecipeById() {
                       let recipe = await main(counter); // ✅ actual value
+                        console.log(counter,":counter \n",recipe,":recipe")
                        // You can now use the recipe
-                        if (recipe !=undefined){
+                        if (recipe){
                             cell1.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
                             <div style="border:1px solid black;width:220px;height:220px;margin: 0; background-color:${recipe["Background_colour"]};">
                                 <table style="display:inline;vertical-align:top;">
@@ -113,7 +114,7 @@
                     //, 
                     async function getRecipeById2() {
                           let recipe = await main(counter); // ✅ actual value
-                           if (recipe !=undefined){
+                           if (recipe){
 
                                 cell2.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
                                 <div style="border:1px solid black;width:220px;height:220px;margin: 0; background-color:${recipe["Background_colour"]};">
@@ -131,7 +132,8 @@
                                     </div>
                                 </div></a>`;
                                
-                                } counter+=1
+                                } 
+                        counter+=1
                         }
 
                     getRecipeById2()
@@ -142,7 +144,7 @@
                     async function getRecipeById3() {
                       let recipe = await main(counter); // ✅ actual value
                        // You can now use the recipe
-                        if (recipe !=undefined){
+                        if (recipe){
 
                             cell3.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
                             <div style="border:1px solid black;width:220px;height:220px;margin: 0; background-color:${recipe["Background_colour"]};">
@@ -160,7 +162,8 @@
                                 </div>
                             </div></a>`;
                             
-                            }counter+=1
+                            }
+                        counter+=1
                     }
                     getRecipeById3()
 
