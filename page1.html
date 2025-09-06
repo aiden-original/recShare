@@ -77,49 +77,16 @@
                      console.log(counter)
                     let table = document.getElementById("table");
                     let row = table.insertRow(-1);
-                    let cell1 = row.insertCell(0);
-                    let cell2 = row.insertCell(1);
-                    let cell3 = row.insertCell(2);
+                   
+                    let cellN=[row.insertCell(0),row.insertCell(1),row.insertCell(2)]
                     //---------------------------------------------------------------
-                    
-                    async function getRecipeById() {
-                      let recipe = await main(counter); // ✅ actual value
-                        console.log(counter,":counter \n",recipe,":recipe")
-                       // You can now use the recipe
-                        if (recipe){
-                            cell1.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
-                            <div style="border:1px solid black;width:220px;height:220px;margin: 0; background-color:${recipe["Background_colour"]};">
-                                <table style="display:inline;vertical-align:top;">
-                                    <tr><th id=test style="filter:contrast(.5);">no*${counter}</th></tr> 
-                                </table>
-                                <div align='center' style="display:flex;align-item:flex-end">
-                                    <div align='center' style="position:relative; bottom:0;left:5px; transform:translateY(3%);border-radius: 0 0 10px 10px;background-color:white;width:96%">
-                                        <table  style="margin: 0;width:150px">
-                                            <tr><td align='center'><textarea style="height:20px;margin: 0" >DishName:${recipe["DishName"]}</textarea></td></tr> 
-                                            <tr><td align='center' height=100px><img height =100px src="${recipe["Front_page"]}" onerror="this.onerror=null; this.src='${ranLink()}'"></td></tr>
-                                            <tr><td align='center'><textarea style="height:20px;margin: 0" >Cuisine:${recipe["Cuisine"]}</textarea></td></tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div></a>`;
-                            
-                            }else {cell1.innerHTML = ""}
-                        
-                    } 
-                     getRecipeById()
-                   counter+=1
-                    
-                    
-                    // else {cell1.innerHTML = ""}
-                    
-                    //------------------------------------------------------------
-                    //, 
-                    async function getRecipeById2() {
+                    for (i in cellN) {
+                        async function getRecipeById() {
                           let recipe = await main(counter); // ✅ actual value
-                        console.log(counter,":counter \n",recipe,":recipe")
-                           if (recipe){
-
-                                cell2.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
+                            console.log(counter,":counter \n",recipe,":recipe")
+                           // You can now use the recipe
+                            if (recipe){
+                                i.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
                                 <div style="border:1px solid black;width:220px;height:220px;margin: 0; background-color:${recipe["Background_colour"]};">
                                     <table style="display:inline;vertical-align:top;">
                                         <tr><th id=test style="filter:contrast(.5);">no*${counter}</th></tr> 
@@ -134,45 +101,14 @@
                                         </div>
                                     </div>
                                 </div></a>`;
-                               
-                                } else {cell2.innerHTML = ""}
-                         
-                        }
-               
-                    getRecipeById2()
-                        // else {cell1.innerHTML = ""}
-                    counter+=1
-                    //-----------------------------------------------------------------
-                    
-                    async function getRecipeById3() {
-                        
-                      let recipe = await main(counter); // ✅ actual value
-                       // You can now use the recipe
-                        console.log(counter,":counter \n",recipe,":recipe")
-                        if (recipe){
-
-                            cell3.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
-                            <div style="border:1px solid black;width:220px;height:220px;margin: 0; background-color:${recipe["Background_colour"]};">
-                                <table style="display:inline;vertical-align:top;">
-                                    <tr><th id=test style="filter:contrast(.5);">no*${counter}</th></tr> 
-                                </table>
-                                <div align='center' style="display:flex;align-item:flex-end">
-                                    <div align='center' style="position:relative; bottom:0;left:5px; transform:translateY(3%);border-radius: 0 0 10px 10px;background-color:white;width:96%">
-                                        <table  style="margin: 0;width:150px">
-                                            <tr><td align='center'><textarea style="height:20px;margin: 0" >DishName:${recipe["DishName"]}</textarea></td></tr> 
-                                            <tr><td align='center' height=100px><img height =100px src="${recipe["Front_page"]}" onerror="this.onerror=null; this.src='${ranLink()}'"></td></tr>
-                                            <tr><td align='center'><textarea style="height:20px;margin: 0" >Cuisine:${recipe["Cuisine"]}</textarea></td></tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div></a>`;
+                                
+                                }else {cell1.innerHTML = ""}
                             
-                            }else {cell3.innerHTML = ""}
-                        
+                        } 
+                         getRecipeById()
+                       counter+=1
                     }
-                    getRecipeById3()
-                    counter+=1
-                    // else {cell1.innerHTML = ""}
+                    
                     
                     
                     }
