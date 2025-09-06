@@ -79,7 +79,7 @@
                     let cell2 = row.insertCell(1);
                     let cell3 = row.insertCell(2);
                     //---------------------------------------------------------------
-                    const recipe = await getRecipeById(counter);
+                    const recipe = getRecipeById(counter);
                     
                     if (recipe !=undefined){
                     cell1.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
@@ -102,7 +102,7 @@
                     
                     //------------------------------------------------------------
                     //, 
-                    const recipe = await getRecipeById(counter);
+                    const recipe = getRecipeById(counter);
                     if (recipe !=undefined){
 
                     cell2.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
@@ -125,7 +125,7 @@
                     
                     //-----------------------------------------------------------------
                     
-                    const recipe = await getRecipeById(counter);
+                    const recipe = getRecipeById(counter);
                     if (recipe !=undefined){
 
                     cell3.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
