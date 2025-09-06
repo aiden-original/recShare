@@ -336,16 +336,20 @@
                         async function saveRecipe(dictionary) {
                           const { data, error } = await Supabase
                             .from("recipes")
-                            .insert([{ dictionary }]); // auto ID will be created by Supabase
+                            .insert([{ dictionary }]); // dictionary is a JSON object
                         
                           if (error) {
                             console.error("Save error:", error);
                             return null;
                           }
+                          console.log("Inserted data:", data);
                           return data;
                         }
                         
-                        saveRecipe(save)
+                        // Example usage:
+                        let save = { title: "Cake", ingredients: ["Flour", "Sugar"] };
+                        saveRecipe(save);
+
                         console.log(save)
                         console.log("saved")
                     }
