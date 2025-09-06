@@ -333,18 +333,7 @@
                     if (limit == 0) {
                         console.log("save pass")
                         ///send the varriable called submit() to some how be append saved
-                        async function saveRecipe(dictionary) {
-                          const { data, error } = await Supabase
-                            .from("recipes")
-                            .insert([{ dictionary }]); // dictionary is a JSON object
                         
-                          if (error) {
-                            console.error("Save error:", error);
-                            return null;
-                          }
-                          console.log("Inserted data:", data);
-                          return data;
-                        }
                         
                         saveRecipe(save);
 
