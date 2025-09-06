@@ -16,11 +16,11 @@
        <script>
             const list = new URLSearchParams(window.location.search)
             const select = list.get('number')
-            let StepCount = 0
+            
             async function getRecipeById() {
                let recipie = await main(select);
     
-                
+                console.log(recipie)
                 
                 
                 //----------------------------------------
@@ -32,7 +32,7 @@
                 let Approved = recipie.Approved
                 let Background_colour = recipie.Background_colour
                 let MaxPortion = recipie.MaxPortion 
-                
+                let StepCount = 0
     
                 
                 let DishNameCall = document.getElementById("dishname");
@@ -135,8 +135,8 @@
                 let recipie = await main(select);
                 
                 
-                let Steps = recipie.Steps
-                let No_of_steps = Steps.length
+                let Steps = recipie.Steps;
+                let No_of_steps = Steps.length;
                 let StepsCall = document.getElementById("Steps");
                 let StepCountCall = document.getElementById("StepCount");
                 
@@ -156,12 +156,12 @@
                 
                 
         function StepRight() {
-            async function RecipeById() {
+            async function RecipeById1() {
                 let recipie = await main(select);
                 
                 
-                let Steps = recipie.Steps
-                let No_of_steps = Steps.length
+                let Steps = recipie.Steps;
+                let No_of_steps = Steps.length;
                 let StepsCall = document.getElementById("Steps");
                 let StepCountCall = document.getElementById("StepCount");
                 
@@ -176,38 +176,39 @@
                 } else {
                     hide[1].style.visibility="hidden";
                 }
-            }RecipeById()
+            }
+            RecipeById1()
         }
         
          function portion(){
-            async function RecipeById() {
+            async function RecipeById2() {
                 let recipie = await main(select);
-                let DishName = recipie.DishName
-                let Cuisine = recipie.Cuisine
-                let Ingredience = recipie.Ingredience
-                let Steps = recipie.Steps
-                let No_of_steps = Steps.length
-                let Approved = recipie.Approved
-                let Background_colour = recipie.Background_colour
-                let MaxPortion = recipie.MaxPortion 
-                let StepCount = 0
+                let DishName = recipie.DishName;
+                let Cuisine = recipie.Cuisine;
+                let Ingredience = recipie.Ingredience;
+                let Steps = recipie.Steps;
+                let No_of_steps = Steps.length;
+                let Approved = recipie.Approved;
+                let Background_colour = recipie.Background_colour;
+                let MaxPortion = recipie.MaxPortion ;
+                let StepCount = 0;
                 
                 
                 let PortionCall = document.getElementById("Portion");
-                let Portion = PortionCall.value
+                let Portion = PortionCall.value;
                 let IngredienceCall = document.getElementById("Ingredience");
-                console.log(Portion,"Portion")
-                Portion=Portion/MaxPortion
-                 console.log(MaxPortion,"MaxPortion")
-                IngredienceCall.value=""
-                console.log(Ingredience,"Ingredience")
+                console.log(Portion,"Portion");
+                Portion=Portion/MaxPortion;
+                 console.log(MaxPortion,"MaxPortion");
+                IngredienceCall.value="";
+                console.log(Ingredience,"Ingredience");
                 for (i in Ingredience){
                     let unit= String(Ingredience[i]).replace(parseInt(Ingredience[i]),"")
                     console.log(parseInt(Ingredience[i]), unit,Portion)
                     IngredienceCall.value=(IngredienceCall.value)+(i+":"+(Number(parseInt(Ingredience[i]))*Portion)+unit)+"\n";
                 }
             }
-             RecipeById()
+             RecipeById2()
         }
     </script>
         
