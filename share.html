@@ -213,7 +213,7 @@
             
             function StepLeft() {
                 StepCount-=1;
-                console.log("left-------------------------------------------------");console.log("StepCount",StepCount)
+                
                 
                 let hide= document.getElementsByClassName("button");
                 StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
@@ -224,7 +224,7 @@
                     hide[1].style.visibility="visible";
                 //}
                 //add this to sumbit button but with no +1
-                console.log("No_of_steps",No_of_steps,"Steps.length",Steps.length)
+                
                 if (No_of_steps!=Steps.length){
                     
                     Steps[StepCount+1]=StepsCall.value
@@ -240,7 +240,7 @@
             
             function StepRight() {
                 StepCount+=1;
-                console.log("right---------------------------------------");console.log("StepCount",StepCount)
+                
                 
                 let hide= document.getElementsByClassName("button");
                 StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
@@ -251,7 +251,7 @@
                 if (StepCount===14){
                     hide[1].style.visibility="hidden";
                 }
-                console.log("No_of_steps",No_of_steps,"Steps.length",Steps.length)
+                
                 if (StepCount==No_of_steps){
                     Steps[StepCount-1]=StepsCall.value
                     No_of_steps+=1
@@ -259,7 +259,7 @@
                     if (StepCount!=20){
                         StepsCall.value=""
                     }
-                console.log("No_of_steps",No_of_steps,"Steps.length",Steps.length)    
+                  
                 } else {
                     StepsCall.value=Steps[StepCount]
                 }
@@ -344,7 +344,10 @@
                           }
                           return data;
                         }
+                        
                         saveRecipe(save)
+                        console.log(save)
+                        console.log("saved")
                     }
                     limit -=1 
                 }
