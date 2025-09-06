@@ -9,28 +9,37 @@ console.log(supabase);
 
 
 async function getRecipeById(id) {
-    // This line waits for Supabase to fetch the row
-    let { data, error } = await Supabase
-        .from('recipes')
-        .select('dictionary')
-        .eq('recipe_id', id)
-        .maybeSingle();
+  const { data, error } = await Supabase
+    .from('recipes')
+    .select('recipe_id, dictionary') // fetch both to be sure
+    .eq('recipe_id', id)
+    .maybeSingle();
 
-    if (error) {
-        console.error(error);
-        return null;
-    } else {
-        return data.dictionary; // returns the recipe dictionary
-    }
-}
-// Show recipe in console (or update your DOM)
-  async function showRecipe() {
-    const recipe = await getRecipeById(1);
-    if (recipe) {
-      console.log(recipe.name);
-      console.log(recipe.ingredients);
-      console.log(recipe.steps);
-    }
+  if (error) {
+    console.error("Supabase error:", error);
+    return null;
   }
 
-  showRecipe();
+  console.log("Row fetched:", data); // 👈 see exactly what comes back
+
+  if (data && data.dictionary) {
+    return data.dictionary; // your JSON object
+  } else {
+    console.warn("No dictionary found for this recipe_id");
+    return null;
+  }
+}
+
+
+
+async function showRecipe() {
+  const recipe = await getRecipeById(1);
+
+  if (recipe) {
+    console.log("Recipe name:", recipe.name);
+    console.log("Ingredients:", recipe.ingredients);
+    console.log("Steps:", recipe.steps);
+  }
+}
+
+showRecipe();
