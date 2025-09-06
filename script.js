@@ -29,7 +29,7 @@ async function main(id) {
 // 3️⃣ Use it inside another async function
 async function getRecipeById() {
   let recipe = await main(counter); // ✅ actual value
-  console.log(recipe); // You can now use the recipe
+   // You can now use the recipe
   return recipe;       // Optionally return it further
 }
 
