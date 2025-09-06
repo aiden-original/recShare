@@ -152,8 +152,11 @@
             function portion(){
                 let PortionCall = document.getElementById("Portion");
                 let Portion = PortionCall.value
+                console.log(Portion,"Portion")
                 Portion=Portion/MaxPortion
+                 console.log(MaxPortion,"MaxPortion")
                 IngredienceCall.value=""
+                console.log(Ingredience,"Ingredience")
                 for (i in Ingredience){
                     let unit= String(Ingredience[i]).replace(parseInt(Ingredience[i]),"")
                     console.log(parseInt(Ingredience[i]), unit,Portion)
