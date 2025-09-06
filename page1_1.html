@@ -13,71 +13,7 @@
         </header>
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <script src="script.js"></script>
-        <script>
-            
-            
-            
-        </script>
-        <style>
-            button {
-                height:25px;
-                width:25px
-            }
-            button:hover {
-                color:white;
-                background-color:black;
-            }
-            textarea {
-                resize: none;
-            }
-            
-        </style>
-        <div><br>
-            
-            <div id = "left"  style="width: 50%;height: 100%;float:left;">
-                <div>
-                    <label for ="dishname" style="vertical-align: middle;">DishName</label>
-                    <textarea readonly id = "dishname" style="height:20px;vertical-align: middle;"></textarea>
-                </div>
-                <!-------------------><br><!------------------->
-                <div>
-                <label for ="Cuisine" style="vertical-align: middle;">Cuisine</label>
-                <textarea readonly id = "Cuisine" style="height:15px;vertical-align: middle;" ></textarea>
-                </div>
-                <!-------------------><br>
-                <div style="height:15px;">
-                    <label for ="Portion" style="vertical-align:middle;">Portion</label>
-                    <textarea type="Number"id = "Portion" style="height:15px;vertical-align:middle;"></textarea>
-                    <button style="display: inline ;vertical-align:middle;height:25px;width:25px; " onclick="portion()">↺</button>
-                </div>
-                <!-------------------><br>
-                <div style="height:410px;width: 500px;">
-                    
-                    <label for ="Steps" id="StepCount">Steps<br></label>
-                    <div>
-                        <button style="vertical-align: middle;display: inline-block;" onclick="StepLeft()" class="button"><</button>
-                        <textarea readonly id = "Steps" style="height:380px;width:400px;vertical-align: middle"></textarea>
-                        <button style="vertical-align: middle;display: inline-block;" onclick="StepRight()" class="button">></button>
-                    </div>
-                </div>
-                 
-            </div>
-            
-            <div  id="right" style="width: 50%;float: right;">
-                <div align="center">
-                <label for ="Ingredience" align="left">Ingredience<br></label>
-                <textarea readonly id = "Ingredience" style="height:380px;width:400px"></textarea>
-                </div>
-                <!-------------------><br>
-                <div style="vertical-align: bottom;" align="center">
-                    <label for ="Approved">Approved</label>
-                    <input readonly type="text" id="Approved" style="width:30px ;background-color: black;color: white;text-align: center;" ></input>
-                </div>
-            </div>
-        </div>
-
-
-        <script>
+       <script>
             const list = new URLSearchParams(window.location.search)
             const select = list.get('number')
             async function getRecipeById() {
@@ -164,6 +100,66 @@
                 }
             }}
             getRecipeById()
-        </script>
+        </script> 
+        <style>
+            button {
+                height:25px;
+                width:25px
+            }
+            button:hover {
+                color:white;
+                background-color:black;
+            }
+            textarea {
+                resize: none;
+            }
+            
+        </style>
+        <div><br>
+            
+            <div id = "left"  style="width: 50%;height: 100%;float:left;">
+                <div>
+                    <label for ="dishname" style="vertical-align: middle;">DishName</label>
+                    <textarea readonly id = "dishname" style="height:20px;vertical-align: middle;"></textarea>
+                </div>
+                <!-------------------><br><!------------------->
+                <div>
+                <label for ="Cuisine" style="vertical-align: middle;">Cuisine</label>
+                <textarea readonly id = "Cuisine" style="height:15px;vertical-align: middle;" ></textarea>
+                </div>
+                <!-------------------><br>
+                <div style="height:15px;">
+                    <label for ="Portion" style="vertical-align:middle;">Portion</label>
+                    <textarea type="Number"id = "Portion" style="height:15px;vertical-align:middle;"></textarea>
+                    <button style="display: inline ;vertical-align:middle;height:25px;width:25px; " onclick="portion()">↺</button>
+                </div>
+                <!-------------------><br>
+                <div style="height:410px;width: 500px;">
+                    
+                    <label for ="Steps" id="StepCount">Steps<br></label>
+                    <div>
+                        <button style="vertical-align: middle;display: inline-block;" onclick="StepLeft()" class="button"><</button>
+                        <textarea readonly id = "Steps" style="height:380px;width:400px;vertical-align: middle"></textarea>
+                        <button style="vertical-align: middle;display: inline-block;" onclick="StepRight()" class="button">></button>
+                    </div>
+                </div>
+                 
+            </div>
+            
+            <div  id="right" style="width: 50%;float: right;">
+                <div align="center">
+                <label for ="Ingredience" align="left">Ingredience<br></label>
+                <textarea readonly id = "Ingredience" style="height:380px;width:400px"></textarea>
+                </div>
+                <!-------------------><br>
+                <div style="vertical-align: bottom;" align="center">
+                    <label for ="Approved">Approved</label>
+                    <input readonly type="text" id="Approved" style="width:30px ;background-color: black;color: white;text-align: center;" ></input>
+                </div>
+            </div>
+        </div>
+
+
+        
     </body>
 </html>
