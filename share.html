@@ -327,23 +327,24 @@
             }
             
             function final() {
-                console.log(prompt("are you sure that the recipe is complete"))
-                if (limit == 1) {
-                    ///send the varriable called submit() to some how be append saved
-                    async function saveRecipe(dictionary) {
-                      const { data, error } = await Supabase
-                        .from("recipes")
-                        .insert([{ dictionary }]); // auto ID will be created by Supabase
-                    
-                      if (error) {
-                        console.error("Save error:", error);
-                        return null;
-                      }
-                      return data;
+                if (comfirm()) {
+                    if (limit == 1) {
+                        ///send the varriable called submit() to some how be append saved
+                        async function saveRecipe(dictionary) {
+                          const { data, error } = await Supabase
+                            .from("recipes")
+                            .insert([{ dictionary }]); // auto ID will be created by Supabase
+                        
+                          if (error) {
+                            console.error("Save error:", error);
+                            return null;
+                          }
+                          return data;
+                        }
+                        saveRecipe(sumbit())
                     }
-                    saveRecipe(sumbit())
+                    limit -=1 
                 }
-                limit -=1 
             }
         </script>
     </body>
