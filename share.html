@@ -329,8 +329,9 @@
                 if (confirm("are you sure you want to sumbit")) {
                     console.log("wants to save")
                     let save = sumbit()
-                    for (i in save) {if (save[i] == "" || save[i] == "NULL"){limit =0;console.log("save rejected")}else{console.log("save pass")}}
+                    for (i in save) {if (save[i] == "" || save[i] == "NULL"){limit =0;console.log("save rejected")}}
                     if (limit == 1) {
+                        console.log("save pass")
                         ///send the varriable called submit() to some how be append saved
                         async function saveRecipe(dictionary) {
                           const { data, error } = await Supabase
