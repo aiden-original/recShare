@@ -80,9 +80,10 @@
                    
                     let cellN=[row.insertCell(0),row.insertCell(1),row.insertCell(2)]
                     //---------------------------------------------------------------
-                    for (i in cellN) {
-                        async function getRecipeById() {
-                          let recipe = await main(counter); // ✅ actual value
+                    
+                    async function getRecipeById() {
+                        for (i in cellN) {
+                            let recipe = await main(counter); // ✅ actual value
                             console.log(counter,":counter \n",recipe,":recipe")
                            // You can now use the recipe
                             if (recipe){
@@ -104,14 +105,14 @@
                                 
                                 }else {cell1.innerHTML = ""}
                             
+                            counter+=1
                         } 
-                         getRecipeById()
-                       counter+=1
+                        
                     }
                     
+                    getRecipeById()
                     
-                    
-                    }
+                }
                 box()
 
              
