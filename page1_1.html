@@ -82,7 +82,7 @@
             const select = list.get('number')
             async function getRecipeById() {
                let recipie = await main(select);
-            console.log(recipie)
+
             
             
             
@@ -160,6 +160,7 @@
                     IngredienceCall.value=(IngredienceCall.value)+(i+":"+(Number(parseInt(Ingredience[i]))*Portion)+unit)+"\n";
                 }
             }}
+            getRecipeById()
         </script>
     </body>
 </html>
