@@ -65,7 +65,10 @@
             
             <script>
                 function ranLink() {
-                    return(urlsList[Math.floor(Math.random()*urlsList.length)])
+                    let loc = Math.floor(Math.random()*urlsList.length)
+                    return(urlsList[loc])
+                    console.log(loc)
+                    console.log(urlsList)
                 }
 
                 
