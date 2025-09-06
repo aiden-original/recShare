@@ -82,12 +82,12 @@
                     //---------------------------------------------------------------
                     
                     async function getRecipeById() {
-                        for (i in cellN) {
+                        for (let i = 0;  1 <3;i++) {
                             let recipe = await main(counter); // ✅ actual value
                             console.log(counter,":counter \n",recipe,":recipe")
                            // You can now use the recipe
                             if (recipe){
-                                i.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
+                                cellN[i].innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
                                 <div style="border:1px solid black;width:220px;height:220px;margin: 0; background-color:${recipe["Background_colour"]};">
                                     <table style="display:inline;vertical-align:top;">
                                         <tr><th id=test style="filter:contrast(.5);">no*${counter}</th></tr> 
@@ -103,7 +103,7 @@
                                     </div>
                                 </div></a>`;
                                 
-                                }else {cell1.innerHTML = ""}
+                                }else {cellN[i].innerHTML = ""}
                             
                             counter+=1
                         } 
