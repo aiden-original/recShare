@@ -6,7 +6,7 @@ console.log(supabase);
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtoY21vd2VuYnJkZHd1anN4b29pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU2MjUzMTQsImV4cCI6MjA3MTIwMTMxNH0._ybMDfD1y7JldmM-rOjJu97vJ2IBPgd5zVjYtSwY3Xg';
   const Supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-async function getRecipeById(id) {
+async function callRecipeById(id) {
   const { data, error } = await Supabase
     .from('recipes')
     .select('recipe_id, dictionary') // fetch both to be sure
@@ -29,5 +29,9 @@ async function getRecipeById(id) {
 }
 
 
+async function getRecipeById() {
+  let recipe = await callRecipeById(counter);
+  console.log(recipe); // ✅ this will be the dictionary
+}
 
-
+main();
