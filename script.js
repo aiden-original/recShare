@@ -34,9 +34,9 @@ async function showRecipe() {
   const recipe = await getRecipeById(1);
 
   if (recipe) {
-    console.log("Recipe name:", recipe.name);
-    console.log("Ingredients:", recipe.ingredients);
-    console.log("Steps:", recipe.steps);
+    console.log("DishName:", recipe.DishName);
+    console.log("Ingredience:", recipe.Ingredience);
+    console.log("Steps:", recipe.Steps);
   }
 }
 
