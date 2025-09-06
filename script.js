@@ -30,15 +30,4 @@ async function getRecipeById(id) {
 
 
 
-async function showRecipe() {
-  const recipe = await getRecipeById(1);
-
-  if (recipe) {
-    console.log("DishName:", recipe.DishName);
-    console.log("Ingredience:", recipe.Ingredience);
-    console.log("Steps:", recipe.Steps);
-  }
-}
-
-showRecipe();
 
