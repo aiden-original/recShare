@@ -11,24 +11,30 @@ console.log(supabase);
 async function getRecipeById(id) {
   const { data, error } = await Supabase
     .from('recipes')
-    .select('recipe_id, dictionary') // fetch both to be sure
+    .select('recipe_id, dictionary')
     .eq('recipe_id', id)
     .maybeSingle();
+
+  console.log("Supabase returned:", data, error); // 👈 log raw response
 
   if (error) {
     console.error("Supabase error:", error);
     return null;
   }
 
-  console.log("Row fetched:", data); // 👈 see exactly what comes back
-
-  if (data && data.dictionary) {
-    return data.dictionary; // your JSON object
-  } else {
-    console.warn("No dictionary found for this recipe_id");
+  if (!data) {
+    console.warn("No row found for recipe_id =", id);
     return null;
   }
+
+  if (!data.dictionary) {
+    console.warn("Row found, but no dictionary field:", data);
+    return null;
+  }
+
+  return data.dictionary;
 }
+
 
 
 
