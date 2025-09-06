@@ -17,18 +17,10 @@ async function getRecipeById() {
         <script>
             const list = new URLSearchParams(window.location.search)
             const select = list.get('number')
-            const recipie = recipies[select]
-            //----------------------------------------
-            let DishName = recipie.DishName
-            let Cuisine = recipie.Cuisine
-            let Ingredience = recipie.Ingredience
-            let Steps = recipie.Steps
-            let No_of_steps = Steps.length
-            let Approved = recipie.Approved
-            let Background_colour = recipie.Background_colour
-            let MaxPortion = recipie.MaxPortion 
-            let StepCount = 0
-        
+           
+          
+          
+          }
         
         </script>
         <style>
@@ -91,68 +83,85 @@ async function getRecipeById() {
         
         
         <script>
-        let DishNameCall = document.getElementById("dishname");
-        DishNameCall.value=DishName;
-        let CuisineCall = document.getElementById("Cuisine");
-        CuisineCall.value=Cuisine;
-        
-        let IngredienceCall = document.getElementById("Ingredience");
-        for (i in Ingredience){
-        console.log(i);
-        IngredienceCall.value=(IngredienceCall.value)+(i+":"+(Ingredience[i]))+"\n";
-        }
-        let StepsCall = document.getElementById("Steps");
-        StepsCall.value=Steps[0];
-        let ApprovedCall = document.getElementById("Approved");
-        ApprovedCall.value=Approved;
-        //let Background_colourCall = document.getElementById("Background_colour");
-        //Background_colourCall.style.Background=Background_colour;
-        let PortionCall = document.getElementById("Portion");
-        PortionCall.placeholder =MaxPortion;
-        PortionCall.value =MaxPortion;
-        
-        let StepCountCall = document.getElementById("StepCount");
-        StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
-        let hide= document.getElementsByClassName("button");
-        hide[0].style.visibility="hidden";
-        function StepLeft() {
-        StepCount-=1;
-        let hide= document.getElementsByClassName("button");
-        StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
-        StepsCall.value=Steps[StepCount];
-        if (StepCount<No_of_steps-1&&StepCount>0){
-        for (let i=0;i<hide.length;i+=1){
-        hide[i].style.visibility="visible";
-        }
-        } else {
-        hide[0].style.visibility="hidden";
-        }
-        }
-        
-        function StepRight() {
-        StepCount+=1;
-        let hide= document.getElementsByClassName("button");
-        StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
-        StepsCall.value=Steps[StepCount];
-        if (StepCount<No_of_steps-1&&StepCount>0){
-        for (let i=0;i<hide.length;i+=1){
-        hide[i].style.visibility="visible";
-        }
-        } else {
-        hide[1].style.visibility="hidden";
-        }
-        }
-        function portion(){
-        let PortionCall = document.getElementById("Portion");
-        let Portion = PortionCall.value
-        Portion=Portion/MaxPortion
-        IngredienceCall.value=""
-        for (i in Ingredience){
-        let unit= String(Ingredience[i]).replace(parseInt(Ingredience[i]),"")
-        console.log(parseInt(Ingredience[i]), unit,Portion)
-        IngredienceCall.value=(IngredienceCall.value)+(i+":"+(Number(parseInt(Ingredience[i]))*Portion)+unit)+"\n";
-        }
-        }
+
+          async function getRecipeById() {
+            let recipie = await main(select);
+          
+            //----------------------------------------
+            let DishName = recipie.DishName
+            let Cuisine = recipie.Cuisine
+            let Ingredience = recipie.Ingredience
+            let Steps = recipie.Steps
+            let No_of_steps = Steps.length
+            let Approved = recipie.Approved
+            let Background_colour = recipie.Background_colour
+            let MaxPortion = recipie.MaxPortion 
+            let StepCount = 0
+
+
+            
+            let DishNameCall = document.getElementById("dishname");
+            DishNameCall.value=DishName;
+            let CuisineCall = document.getElementById("Cuisine");
+            CuisineCall.value=Cuisine;
+            
+            let IngredienceCall = document.getElementById("Ingredience");
+            for (i in Ingredience){
+            console.log(i);
+            IngredienceCall.value=(IngredienceCall.value)+(i+":"+(Ingredience[i]))+"\n";
+            }
+            let StepsCall = document.getElementById("Steps");
+            StepsCall.value=Steps[0];
+            let ApprovedCall = document.getElementById("Approved");
+            ApprovedCall.value=Approved;
+            //let Background_colourCall = document.getElementById("Background_colour");
+            //Background_colourCall.style.Background=Background_colour;
+            let PortionCall = document.getElementById("Portion");
+            PortionCall.placeholder =MaxPortion;
+            PortionCall.value =MaxPortion;
+            
+            let StepCountCall = document.getElementById("StepCount");
+            StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
+            let hide= document.getElementsByClassName("button");
+            hide[0].style.visibility="hidden";
+            function StepLeft() {
+            StepCount-=1;
+            let hide= document.getElementsByClassName("button");
+            StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
+            StepsCall.value=Steps[StepCount];
+            if (StepCount<No_of_steps-1&&StepCount>0){
+            for (let i=0;i<hide.length;i+=1){
+            hide[i].style.visibility="visible";
+            }
+            } else {
+            hide[0].style.visibility="hidden";
+            }
+            }
+            
+            function StepRight() {
+            StepCount+=1;
+            let hide= document.getElementsByClassName("button");
+            StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
+            StepsCall.value=Steps[StepCount];
+            if (StepCount<No_of_steps-1&&StepCount>0){
+            for (let i=0;i<hide.length;i+=1){
+            hide[i].style.visibility="visible";
+            }
+            } else {
+            hide[1].style.visibility="hidden";
+            }
+            }
+            function portion(){
+              let PortionCall = document.getElementById("Portion");
+              let Portion = PortionCall.value
+              Portion=Portion/MaxPortion
+              IngredienceCall.value=""
+              for (i in Ingredience){
+              let unit= String(Ingredience[i]).replace(parseInt(Ingredience[i]),"")
+              console.log(parseInt(Ingredience[i]), unit,Portion)
+              IngredienceCall.value=(IngredienceCall.value)+(i+":"+(Number(parseInt(Ingredience[i]))*Portion)+unit)+"\n";
+              }
+            }}
         </script>
     </body>
 </html>
