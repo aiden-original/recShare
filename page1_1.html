@@ -16,6 +16,7 @@
        <script>
             const list = new URLSearchParams(window.location.search)
             const select = list.get('number')
+            let StepCount = 0
             async function getRecipeById() {
                let recipie = await main(select);
     
@@ -31,7 +32,7 @@
                 let Approved = recipie.Approved
                 let Background_colour = recipie.Background_colour
                 let MaxPortion = recipie.MaxPortion 
-                let StepCount = 0
+                
     
                 
                 let DishNameCall = document.getElementById("dishname");
@@ -62,33 +63,7 @@
                 hide[0].style.visibility="hidden";
                 
                 
-                function StepLeft() {
-                    StepCount-=1;
-                    let hide= document.getElementsByClassName("button");
-                    StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
-                    StepsCall.value=Steps[StepCount];
-                    if (StepCount<No_of_steps-1&&StepCount>0){
-                        for (let i=0;i<hide.length;i+=1){
-                            hide[i].style.visibility="visible";
-                        }
-                    } else {
-                        hide[0].style.visibility="hidden";
-                        }
-                }
                 
-                function StepRight() {
-                    StepCount+=1;
-                    let hide= document.getElementsByClassName("button");
-                    StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
-                    StepsCall.value=Steps[StepCount];
-                    if (StepCount<No_of_steps-1&&StepCount>0){
-                        for (let i=0;i<hide.length;i+=1){
-                            hide[i].style.visibility="visible";
-                        }
-                    } else {
-                        hide[1].style.visibility="hidden";
-                        }
-                }
             }
                     
                 
@@ -154,6 +129,56 @@
         </div>
 
     <script>
+        
+        function StepLeft() {
+            async function RecipeById() {
+                let recipie = await main(select);
+                
+                
+                let Steps = recipie.Steps
+                let No_of_steps = Steps.length
+                let StepsCall = document.getElementById("Steps");
+                let StepCountCall = document.getElementById("StepCount");
+                
+                StepCount-=1;
+                let hide= document.getElementsByClassName("button");
+                StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
+                StepsCall.value=Steps[StepCount];
+                if (StepCount<No_of_steps-1&&StepCount>0){
+                    for (let i=0;i<hide.length;i+=1){
+                        hide[i].style.visibility="visible";
+                    }
+                } else {
+                    hide[0].style.visibility="hidden";
+                    }
+            }RecipeById()
+        }
+                
+                
+        function StepRight() {
+            async function RecipeById() {
+                let recipie = await main(select);
+                
+                
+                let Steps = recipie.Steps
+                let No_of_steps = Steps.length
+                let StepsCall = document.getElementById("Steps");
+                let StepCountCall = document.getElementById("StepCount");
+                
+                StepCount+=1;
+                let hide= document.getElementsByClassName("button");
+                StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
+                StepsCall.value=Steps[StepCount];
+                if (StepCount<No_of_steps-1&&StepCount>0){
+                    for (let i=0;i<hide.length;i+=1){
+                        hide[i].style.visibility="visible";
+                    }
+                } else {
+                    hide[1].style.visibility="hidden";
+                }
+            }RecipeById()
+        }
+        
          function portion(){
             async function RecipeById() {
                 let recipie = await main(select);
