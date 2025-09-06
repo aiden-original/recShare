@@ -16,7 +16,7 @@
        <script>
             const list = new URLSearchParams(window.location.search)
             const select = list.get('number')
-            
+            let StepCount = 0
             async function getRecipeById() {
                let recipie = await main(select);
     
@@ -32,7 +32,7 @@
                 let Approved = recipie.Approved
                 let Background_colour = recipie.Background_colour
                 let MaxPortion = recipie.MaxPortion 
-                let StepCount = 0
+                
     
                 
                 let DishNameCall = document.getElementById("dishname");
