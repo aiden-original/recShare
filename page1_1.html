@@ -14,19 +14,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <script src="script.js"></script>
         <script>
-            const list = new URLSearchParams(window.location.search)
-            const select = list.get('number')
-            const recipie = recipies[select]
-            //----------------------------------------
-            let DishName = recipie.DishName
-            let Cuisine = recipie.Cuisine
-            let Ingredience = recipie.Ingredience
-            let Steps = recipie.Steps
-            let No_of_steps = Steps.length
-            let Approved = recipie.Approved
-            let Background_colour = recipie.Background_colour
-            let MaxPortion = recipie.MaxPortion 
-            let StepCount = 0
+            
             
             
         </script>
@@ -90,6 +78,26 @@
 
 
         <script>
+            const list = new URLSearchParams(window.location.search)
+            const select = list.get('number')
+            async function getRecipeById() {
+               let recipe = await main(select);
+            
+            
+            
+            
+            //----------------------------------------
+            let DishName = recipie.DishName
+            let Cuisine = recipie.Cuisine
+            let Ingredience = recipie.Ingredience
+            let Steps = recipie.Steps
+            let No_of_steps = Steps.length
+            let Approved = recipie.Approved
+            let Background_colour = recipie.Background_colour
+            let MaxPortion = recipie.MaxPortion 
+            let StepCount = 0
+
+            
             let DishNameCall = document.getElementById("dishname");
             DishNameCall.value=DishName;
             let CuisineCall = document.getElementById("Cuisine");
@@ -151,7 +159,7 @@
                     console.log(parseInt(Ingredience[i]), unit,Portion)
                     IngredienceCall.value=(IngredienceCall.value)+(i+":"+(Number(parseInt(Ingredience[i]))*Portion)+unit)+"\n";
                 }
-            }
+            }}
         </script>
     </body>
 </html>
