@@ -9,8 +9,7 @@ const urlsList = ["https://img.freepik.com/premium-vector/salad-bowl-clipart-car
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA_f36nJiE8EgAN6t3EwMmwVl4Tp8oJTcPjQ&s",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwF5BpIjuqZ8V8c4D4WGFkHd11LVKC2ZZm3w&s",
 ]
-const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
-console.log(sessionData);
+
 
 let counter = 1
 // 1️⃣ Fetch recipe from Supabase
