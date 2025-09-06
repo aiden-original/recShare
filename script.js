@@ -31,5 +31,5 @@ async function callRecipeById(id) {
 
 async function getRecipeById() {
   let recipe = await callRecipeById(counter);
-  console.log(recipe); // ✅ this will be the dictionary
+  return(recipe);
 }
