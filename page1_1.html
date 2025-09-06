@@ -56,8 +56,12 @@
     
                 let StepCountCall = document.getElementById("StepCount");
                 StepCountCall.innerHTML =`<label for ="Steps" id="StepCount">Steps[${StepCount+1}]<br></label>`;
+                
+                
                 let hide= document.getElementsByClassName("button");
                 hide[0].style.visibility="hidden";
+                
+                
                 function StepLeft() {
                     StepCount-=1;
                     let hide= document.getElementsByClassName("button");
@@ -151,7 +155,7 @@
 
     <script>
          function portion(){
-            async function getRecipeById() {
+            async function RecipeById() {
                 let recipie = await main(select);
                 let DishName = recipie.DishName
                 let Cuisine = recipie.Cuisine
@@ -166,6 +170,7 @@
                 
                 let PortionCall = document.getElementById("Portion");
                 let Portion = PortionCall.value
+                let IngredienceCall = document.getElementById("Ingredience");
                 console.log(Portion,"Portion")
                 Portion=Portion/MaxPortion
                  console.log(MaxPortion,"MaxPortion")
@@ -177,7 +182,7 @@
                     IngredienceCall.value=(IngredienceCall.value)+(i+":"+(Number(parseInt(Ingredience[i]))*Portion)+unit)+"\n";
                 }
             }
-             getRecipeById()
+             RecipeById()
         }
     </script>
         
