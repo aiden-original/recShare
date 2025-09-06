@@ -69,7 +69,8 @@
                 }
 
                 
-                let counter = 0
+                let counter = 1
+                
                 
                 function box(){
                     let table = document.getElementById("table");
@@ -78,8 +79,8 @@
                     let cell2 = row.insertCell(1);
                     let cell3 = row.insertCell(2);
                     //---------------------------------------------------------------
+                    const recipe = await getRecipeById(counter);
                     
-                    let recipe = recipies[counter]
                     if (recipe !=undefined){
                     cell1.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
                     <div style="border:1px solid black;width:220px;height:220px;margin: 0; background-color:${recipe["Background_colour"]};">
@@ -101,7 +102,7 @@
                     
                     //------------------------------------------------------------
                     //, 
-                    recipe = recipies[counter]
+                    const recipe = await getRecipeById(counter);
                     if (recipe !=undefined){
 
                     cell2.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
@@ -124,7 +125,7 @@
                     
                     //-----------------------------------------------------------------
                     
-                    recipe = recipies[counter]
+                    const recipe = await getRecipeById(counter);
                     if (recipe !=undefined){
 
                     cell3.innerHTML = `<a href = 'page1_1.html?number=${counter}' target='_parent' >
