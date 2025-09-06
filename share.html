@@ -330,7 +330,8 @@
             }
             
             function final() {
-                if (limit == 0) {
+                console.log(prompt("are you sure that the recipe is complete")
+                if (limit == 1) {
                     ///send the varriable called submit() to some how be append saved
                     async function saveRecipe(dictionary) {
                       const { data, error } = await Supabase
