@@ -7,45 +7,9 @@ console.log(supabase);
   const Supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 
+let { data, error } = await supabase
+  .from("recipes")
+  .select("*");
 
-async function getRecipeById(id) {
-  const { data, error } = await Supabase
-    .from('recipes')
-    .select('recipe_id, dictionary')
-    .eq('recipe_id', id)
-    .maybeSingle();
+console.log("ALL recipes:", data, error);
 
-  console.log("Supabase returned:", data, error); // 👈 log raw response
-
-  if (error) {
-    console.error("Supabase error:", error);
-    return null;
-  }
-
-  if (!data) {
-    console.warn("No row found for recipe_id =", id);
-    return null;
-  }
-
-  if (!data.dictionary) {
-    console.warn("Row found, but no dictionary field:", data);
-    return null;
-  }
-
-  return data.dictionary;
-}
-
-
-
-
-async function showRecipe() {
-  const recipe = await getRecipeById(1);
-
-  if (recipe) {
-    console.log("Recipe name:", recipe.DishName);
-    console.log("Ingredients:", recipe.ingredients);
-    console.log("Steps:", recipe.steps);
-  }
-}
-
-showRecipe();
