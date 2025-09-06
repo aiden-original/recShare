@@ -329,7 +329,7 @@
                 if (confirm("are you sure you want to sumbit")) {
                     console.log("wants to save")
                     let save = sumbit()
-                    for (i in save) {if (i == "" || i == "NULL"){limit =0;console.log("save rejected")}}
+                    for (i in save) {if (save[i] == "" || save[i] == "NULL"){limit =0;console.log("save rejected")}else{console.log("save pass")}}
                     if (limit == 1) {
                         ///send the varriable called submit() to some how be append saved
                         async function saveRecipe(dictionary) {
