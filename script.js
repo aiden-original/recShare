@@ -1,4 +1,4 @@
-// hosting was chat gpt so no questions
+// hosting was only possible due to chat gpt so no questions, however i do i have an local version if you want to see it.
 
 console.log(supabase);
 // Initialize Supabase
